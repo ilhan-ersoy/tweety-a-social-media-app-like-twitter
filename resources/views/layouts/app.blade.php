@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -25,7 +26,7 @@
         <section class="px-12 py-8">
             <header class="container mx-auto">
                 <h1>
-                    <a href="{{route('home')}}"><img src="{{asset('images/logo.svg')}}" alt=""></a>
+                    <a href="#"><img src="{{asset('images/logo.svg')}}" alt="" style="width: 200px;"></a>
                 </h1>
             </header>
         </section>
@@ -35,13 +36,14 @@
                 <div class="lg:flex lg:justify-between">
 
                     @if(auth()->check())
-                        <div class="lg:w-1/6 bg-gray-200 border border-gray-300 rounded-lg py-4 px-6" style="max-height: 500px;">
+                        <div class="lg:w-1/6 bg-gray-200 border border-black rounded-lg py-4 px-8" style="max-height: 350px;">
                             @include('components._sidebar-links')
                         </div>
                     @endif
-                    <div class="lg:flex-1 lg:mx-10" style="max-width: 900px;">
+                    <div class="lg:flex-1 lg:mx-10">
 
                         @yield('content')
+
                     </div>
 
                     @if(auth()->check())

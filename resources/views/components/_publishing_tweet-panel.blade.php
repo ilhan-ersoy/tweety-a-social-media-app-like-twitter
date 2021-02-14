@@ -6,13 +6,13 @@
         </textarea>
         <hr class="m-4">
         <footer class="flex justify-between">
-            <img src="{{auth()->user()->getAvatar()}}"
+            <img src="{{current_user()->getProfileImages('avatar')}}"
                  alt=""
                  class="rounded-full m-2 flex-shrink-0"
                  width="75px;"
                  height="75px;"
             >
-            <button type="submit" class="bg-blue-400 py-2 px-3 float-right text-white rounded-lg shadow ">Tweet a roo!</button>
+            <button type="submit" class="bg-blue-400 py-2 px-3 float-right text-white rounded-lg shadow text-lg hover:bg-blue-500 ">Tweet a roo!</button>
         </footer>
     </form>
 </div>

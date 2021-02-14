@@ -8,10 +8,10 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable,followable;
+    use Notifiable,followable; // follow methods in followable trait
 
     protected $fillable = [
-        'name', 'email', 'password',
+       'name', 'email', 'password','username','avatar','bgImg'
     ];
 
 
@@ -24,30 +24,51 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatar(){
-        return " https://i.pravatar.cc/200?u=".$this->email;
+
+
+    public function getProfileImages($selection)
+    {
+        if($selection === "avatar") {
+            $path = $this->avatar ? asset($this->avatar) : asset('avatars/default-avatar.jpg');
+            return $path;
+        }
+        elseif($selection === "bgImg"){
+            $path = $this->bgImg ? asset($this->bgImg) : asset('bgImages/default-profile-banner.jpg');
+            return $path;
+        }
     }
+
+
+
 
     public function timeline(){
         $ids = $this->follows()->pluck('id'); //takip edilen kisilerin unique idleri
-        $ids->push($this->id);//ids arrayine pushla
-        return  Tweet::whereIn('user_id',$ids)->latest()->get(); // Tweet modelinde user_id ids olanlari dondur
+        $ids->push($this->id);//ids arrayine pushlaz
+        return  Tweet::withLikes()->whereIn('user_id',$ids)->latest()->paginate(4); // Tweet modelinde user_id ids olanlari dondur
     }
 
     public function tweets(){
-        return $this->hasMany(Tweet::class)->latest();
+        return $this->hasMany(Tweet::class)->withLikes()->latest();
+    }
+
+    public function setPassword($password){
+        return $this->attributes['avatar'] = bcrypt($password);
     }
 
 
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'username';
     }
 
-    public function path($append = ''){
-        $path = route('profile',$this->name);
-        return $path;
+    public function path(){
+        return route('profile',$this->username);
     }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
 
 
 

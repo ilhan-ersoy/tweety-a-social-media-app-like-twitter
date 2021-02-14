@@ -8,8 +8,7 @@ class followsController extends Controller
 {
     public function store(User $user){
 
-        auth()
-            ->user()
+        current_user()
                 ->followSelect($user);
 
         return back();

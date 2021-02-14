@@ -23,14 +23,22 @@ Route::middleware('auth')->group(function (){
 
     Route::post('/tweets','TweetsController@store')->name('setTweet');
 
+    Route::post('/tweet/delete/{id}','TweetsController@deleteTweet')->name('deleteTweet');
+
+
 
 
     Route::post('/profiles/{user}/follow','followsController@store')->name('follow');
+
+    Route::patch('/profiles/{user}','ProfilesController@update')->name('profile');
+
+    Route::get('/explore','ExploreController');
 
 });
 
 
 Route::get('/profiles/{user}','ProfilesController@show')->name('profile');
+
 
 Auth::routes();
 

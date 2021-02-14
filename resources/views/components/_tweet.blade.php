@@ -1,24 +1,77 @@
 
-    <div class="flex py-5 px-3 border-b border-gray-300 ">
+    <div class="flex py-1 px-2 {{!$loop->last ? 'border-b border-gray-300':''}}" style="max-width: 930px;">
 
-        <div class="mr-2 flex-shrink-0">
+        <div class="mr-4 ml-5 flex-shrink-0">
 
-                <img src="{{$tweet->user->getAvatar()}}"
+                <img src="{{$tweet->user->getProfileImages('avatar')}}"
                      alt="user"
-                     class="rounded-full m-2 flex-shrink-0"
-                     width="80px;"
-                     height="80px;"
+                     class="rounded-full mb-4 flex-shrink-0"
+                     width="70px;"
+                     height="70px;"
                 >
 
 
-            <span class="float-right text-sm" style="font-family: .AppleSystemUIFont" >{{$tweet->created_at->diffForHumans()}}</span>
+            <div class="flex justify-between">
+
+                @can('deleteTweet',$tweet->user)
+                    <form action="{{route('deleteTweet',$tweet->id)}}" method="POST">
+                        @csrf
+                        <button class="bg-red-500 hover:bg-red-700 px-2 rounded-lg mr-2"><a class="text-white text-sm">Sil</a></button>
+                    </form>
+                @endcan
+
+            </div>
 
         </div>
+        <div style="max-width: 930px;" class="ml-8">
 
-        <div>
+           <h5>
+               <a href="{{route('profile',$tweet->user)}}"><h5 class="font-bold mb-4">{{$tweet->user->name}}</h5></a>
+           </h5>
 
-            <a href="{{route('profile',$tweet->user->name)}}"><h5 class="font-bold mb-4">{{$tweet->user->name}}</h5></a>
-            <p class="text-sm">{{$tweet->body}}</p>
+            <p>{{$tweet->body}}</p>
+
+            <div class="flex mt-3">
+                <div class="flex items-center">
+                    <svg viewBox="0 0 20 20"
+                         class="mr-3 w-3 text-gray-500"
+                    >
+                        <g id="Page-1"
+                           stroke="none"
+                           stroke-width="1"
+                           fill="none"
+                           fill-rule="evenodd"
+                        >
+                            <g class="fill-current">
+                                <path d="M11.0010436,0 C9.89589787,0 9.00000024,0.886706352 9.0000002,1.99810135 L9,8 L1.9973917,8 C0.894262725,8 0,8.88772964 0,10 L0,12 L2.29663334,18.1243554 C2.68509206,19.1602453 3.90195042,20 5.00853025,20 L12.9914698,20 C14.1007504,20 15,19.1125667 15,18.000385 L15,10 L12,3 L12,0 L11.0010436,0 L11.0010436,0 Z M17,10 L20,10 L20,20 L17,20 L17,10 L17,10 Z"
+                                      id="Fill-97"
+                                ></path>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="text-m text-gray-500">{{$tweet->likes ? : 0}}</span>
+
+                    <svg viewBox="0 0 20 20"
+                         class="ml-3 w-3 text-gray-500"
+                    >
+                        <g id="Page-1"
+                           stroke="none"
+                           stroke-width="1"
+                           fill="none"
+                           fill-rule="evenodd"
+                        >
+                            <g class="fill-current">
+                                <path d="M11.0010436,20 C9.89589787,20 9.00000024,19.1132936 9.0000002,18.0018986 L9,12 L1.9973917,12 C0.894262725,12 0,11.1122704 0,10 L0,8 L2.29663334,1.87564456 C2.68509206,0.839754676 3.90195042,8.52651283e-14 5.00853025,8.52651283e-14 L12.9914698,8.52651283e-14 C14.1007504,8.52651283e-14 15,0.88743329 15,1.99961498 L15,10 L12,17 L12,20 L11.0010436,20 L11.0010436,20 Z M17,10 L20,10 L20,0 L17,0 L17,10 L17,10 Z"
+                                      id="Fill-97"
+                                ></path>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="text-m text-gray-500 ml-3">{{$tweet->dislikes ? : 0}}</span>
+
+                </div>
+            </div>
+
 
         </div>
     </div>
