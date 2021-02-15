@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdbceac5-49cb-4483-8667-064c99cfbc1e" name="Default Changelist" comment="" />
+    <list default="true" id="fdbceac5-49cb-4483-8667-064c99cfbc1e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +225,7 @@
       <workItem from="1613162769208" duration="1486000" />
       <workItem from="1613322333619" duration="3520000" />
       <workItem from="1613327309457" duration="2679000" />
-      <workItem from="1613345863186" duration="227000" />
+      <workItem from="1613345863186" duration="670000" />
     </task>
     <servers />
   </component>
@@ -315,14 +317,14 @@
     </state>
     <state x="534" y="232" key="run.anything.popup/0.23.1920.978@0.23.1920.978" timestamp="1613322328851" />
     <state x="534" y="233" key="run.anything.popup/0.23.1920.981@0.23.1920.981" timestamp="1612105309712" />
-    <state x="534" y="23" width="840" height="1029" key="search.everywhere.popup" timestamp="1613330015351">
+    <state x="534" y="23" width="840" height="1029" key="search.everywhere.popup" timestamp="1613346707309">
       <screen x="0" y="23" width="1920" height="978" />
     </state>
     <state x="534" y="0" width="840" height="1137" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1609696103614" />
     <state x="445" y="23" width="700" height="842" key="search.everywhere.popup/0.23.1600.798@0.23.1600.798" timestamp="1613320393456" />
     <state x="445" y="23" width="700" height="845" key="search.everywhere.popup/0.23.1600.802@0.23.1600.802" timestamp="1612882008823" />
     <state x="445" y="23" width="700" height="851" key="search.everywhere.popup/0.23.1600.808@0.23.1600.808" timestamp="1612874287366" />
-    <state x="534" y="23" width="840" height="1029" key="search.everywhere.popup/0.23.1920.978@0.23.1920.978" timestamp="1613330015351" />
+    <state x="534" y="23" width="840" height="1029" key="search.everywhere.popup/0.23.1920.978@0.23.1920.978" timestamp="1613346707309" />
     <state x="534" y="23" width="840" height="1030" key="search.everywhere.popup/0.23.1920.979@0.23.1920.979" timestamp="1612553801828" />
     <state x="534" y="23" width="840" height="1032" key="search.everywhere.popup/0.23.1920.981@0.23.1920.981" timestamp="1612106549489" />
     <state x="534" y="23" width="840" height="1035" key="search.everywhere.popup/0.23.1920.982@0.23.1920.982" timestamp="1612884213511" />
